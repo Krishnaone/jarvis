@@ -10,6 +10,32 @@
     <link rel="shortcut icon" href="avatar.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+document.addEventListener("contextmenu", (event) => event.preventDefault()); // Disable Right Click
+
+document.addEventListener("keydown", (event) => {
+    if (event.keyCode == 123) { // F12
+        event.preventDefault();
+    }
+    if (event.ctrlKey && event.shiftKey && (event.keyCode == 73 || event.keyCode == 74)) { // Ctrl + Shift + I / Ctrl + Shift + J
+        event.preventDefault();
+    }
+    if (event.ctrlKey && event.keyCode == 85) { // Ctrl + U
+        event.preventDefault();
+    }
+});
+
+// Detect DevTools Open
+setInterval(() => {
+    let before = new Date().getTime();
+    debugger;
+    let after = new Date().getTime();
+    if (after - before > 100) {
+        window.location.reload();
+    }
+}, 500);
+</script>
+
 
 </head>
 
